@@ -1,7 +1,10 @@
 import { Box, Typography, Button } from "@mui/material";
 import heroImg from "../../assets/images/Group 2346.png";
-import ArrowDownIcon from "../../assets/icons/ArrowDownIcon/ArrowDownIcon";
-import DoodlesMixedRound from "../../assets/decorations/DoodlesMixedRound"
+import ArrowDownIcon from "../../assets/icons/ArrowDownIcon";
+import DoodlesMixedRound from "../../assets/decorations/DoodlesMixedRound";
+import Ellipse from "../../assets/decorations/Ellipse";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import Vector from "../../assets/decorations/Vector";
 
 const Hero = () => {
   return (
@@ -13,81 +16,119 @@ const Hero = () => {
         alignItems: "center",
         justifyContent: "space-between",
         position: "relative",
+        overflow: "hidden",
       }}
     >
-      <Box maxWidth={520}>
-        <Typography
-          variant="h2"
-          fontWeight={800}
-          lineHeight={1.1}
-          sx={{ fontSize: { xs: 42, md: 64 } }}
+      {/* LEFT CONTENT */}
+      <Box
+        maxWidth={520}
+        sx={{
+          position: "relative",    
+        }}
+      >
+        {/* VECTOR ARROW */}
+        <Box
+          sx={{
+            position: "absolute",
+            left: "-5px",
+            top: "0px",
+            zIndex: 0,
+            opacity: 0.4,
+            pointerEvents: "none",
+          }}
         >
-          CREATIVE UI
-        </Typography>
-
-        <Typography
-          variant="h2"
-          fontWeight={800}
-          color="primary"
-          lineHeight={1.1}
-          sx={{ fontSize: { xs: 42, md: 64 } }}
-        >
-          DESIGNER
-        </Typography>
-
-        <Box mt={4} display="flex" gap={2}>
-          <Button
-            variant="contained"
-            sx={{
-              px: 4,
-              py: 1.3,
-              borderRadius: 5,
-              textTransform: "none",
-              fontWeight: "bold",
-              color:"#fff"
-            }}
-          >
-            Hire me
-          </Button>
-
-          <Button
-            variant="outlined"
-            sx={{
-              px: 3,
-              py: 1.3,
-              borderRadius: 5,
-              textTransform: "none",
-              borderColor: "#2d3748",
-              color: "#fff",
-            }}
-          >
-            Download CV <ArrowDownIcon size={26} style={{ color: "#16c7c3" }} />
-          </Button>
+          <Vector />
         </Box>
-      </Box>
 
-      <Box display={{ xs: "none", md: "block" }} sx={{ position: "relative" }}>
         <Box
             sx={{
+              pl: "100px", 
+            }}
+          >
+            {/* TITLES */}
+            <Typography
+              fontWeight={800}
+              lineHeight={1.1}
+              sx={{ fontSize: { xs: 42, md: 64 } }}
+            >
+              CREATIVE UI
+            </Typography>
+
+            <Typography
+              fontWeight={800}
+              color="primary"
+              lineHeight={1.1}
+              sx={{ fontSize: { xs: 42, md: 64 } }}
+            >
+              DESIGNER
+            </Typography>
+
+            {/* BUTTONS */}
+            <Box mt={4} display="flex" gap={2} >
+              <Button variant="contained" sx={{color:"#fff",textTransform: "none",borderRadius: "20px",textShadow: "0 4px 6px rgba(0,0,0,0.45)"}} >Hire me</Button>
+              <Button variant="contained" sx={{color:"#fff",textTransform: "none",borderRadius: "20px",backgroundColor:"#393E46",textShadow: "0 4px 6px rgba(0,0,0,0.45)",}}>
+                Download CV <ArrowDownIcon size={26} />
+              </Button>
+            </Box>
+          </Box>
+
+      </Box>
+
+      {/* RIGHT SIDE (IMAGE + SHADOW) */}
+      <Box
+        sx={{
+          position: "relative",
+          width: 500,
+          height: 520,
+          display: { xs: "none", md: "block" },
+        }}
+      >
+        {/* BACKGROUND DOODLES */}
+        <Box
+          sx={{
             position: "absolute",
-            top: "-50px",
-            left: "-50px",
+            top: "-40px",
+            left: "-40px",
             width: 500,
             height: 500,
             zIndex: 0,
             pointerEvents: "none",
-            }}
+          }}
         >
-            <DoodlesMixedRound width="100%" height="100%" />
+          <DoodlesMixedRound width="100%" height="100%" />
         </Box>
 
-        <img
-            src={heroImg}
-            alt="Designer"
-            style={{ width: 420, position: "relative", zIndex: 1 }}
+        {/* BLACK SHADOW */}
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: 0,
+            left: "25%",
+            transform: "translateX(-50%)",
+            zIndex: 1,
+            filter: "blur(3px)",
+          }}
+        >
+          <Ellipse />
+        </Box>
+
+        {/* CHARACTER IMAGE */}
+        <Box
+          component="img"
+          src={heroImg}
+          alt="Designer"
+          sx={{
+            position: "absolute",
+            bottom: -90,
+            left: "25%",
+            transform: "translateX(-50%)",
+            width: 420,
+            zIndex: 2,
+          }}
         />
-        </Box>
+      </Box>
 
+      {/* SCROLL ICON */}
       <Box
         sx={{
           position: "absolute",
@@ -104,7 +145,7 @@ const Hero = () => {
           cursor: "pointer",
         }}
       >
-        <Typography fontSize={22}>↓</Typography>
+        <ArrowDownwardIcon />
       </Box>
     </Box>
   );

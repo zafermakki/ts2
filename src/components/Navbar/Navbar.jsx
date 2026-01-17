@@ -2,12 +2,13 @@ import { AppBar, Toolbar, Typography, Box, Button } from "@mui/material";
 
 const Navbar = () => {
   return (
-    <AppBar elevation={0} sx={{ background: "transparent" }}>
+    <AppBar position="static" elevation={0} sx={{ background: "transparent" }}>
       <Toolbar
         sx={{
           px: { xs: 2, md: 10 },
           display: "flex",
           justifyContent: "space-between",
+          borderBottom: "1.440px solid rgba(255,255,255,0.15)",
         }}
       >
         {/* Logo */}
