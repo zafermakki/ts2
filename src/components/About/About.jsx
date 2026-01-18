@@ -1,9 +1,16 @@
-import React from "react";
-import { Box, Typography, Button } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Typography } from "@mui/material";
 import aboutImg from "../../assets/images/Group 62.png";
 import VectorMusic from "../../assets/decorations/VectorMusic";
+import Ellipse from "../../assets/decorations/Ellipse";
+import DoodleItems from "../../assets/decorations/DoodleItems";
+import VectorShare from "../../assets/decorations/VectorShare";
+import Lightbulb from "../../assets/decorations/Lightbulb";
+import Sleep from "../../assets/decorations/Sleep";
 
 const About = () => {
+  const [showMore, setShowMore] = useState(false);
+
   return (
     <Box
       sx={{
@@ -14,59 +21,120 @@ const About = () => {
         alignItems: "center",
         justifyContent: "space-between",
         gap: 6,
+        flexDirection: { xs: "column", md: "row" },
+        position: "relative",
       }}
     >
       {/* LEFT CONTENT */}
       <Box maxWidth={520} position="relative">
-        {/* Decoration */}
-        <Box sx={{ position: "absolute", top: -30, left: -40 }}>
+        <Box sx={{ position: "absolute", top: -80, left: 0 }}>
           <VectorMusic />
         </Box>
+        <Box sx={{ position: "absolute", top: -20, right: 200, opacity: 0.8 }}>
+          <Lightbulb />
+        </Box>
+        <Box sx={{ position: "absolute", bottom: -200, left: 80, opacity: 0.8 }}>
+          <VectorShare />
+        </Box>
 
-        <Typography
-          variant="h3"
-          fontWeight={800}
-          mb={2}
-        >
+        <Typography variant="h3" fontWeight={800} mb={2}>
           About{" "}
           <Box component="span" color="primary.main">
             me
           </Box>
         </Typography>
 
-        <Typography
-          variant="body1"
-          color="text.secondary"
-          lineHeight={1.8}
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Nunc vulputate libero et velit interdum, ac aliquet odio
-          mattis. Class aptent taciti sociosqu ad litora torquent
-          per conubia nostra, per inceptos himenaeos.
+        <Typography color="text.secondary" lineHeight={1.8}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi iusto assumenda,
+          esse ducimus, quibusdam molestias quis earum, quidem accusamus nobis aperiam eum
+          {!showMore && (
+            <>
+              ...{" "}
+              <Box
+                component="span"
+                onClick={() => setShowMore(true)}
+                sx={{
+                  color: "#fff",
+                  fontWeight: 600,
+                  cursor: "pointer",
+                  "&:hover": { color: "primary.main" },
+                }}
+              >
+                Read more
+              </Box>
+            </>
+          )}
+
+          {showMore && (
+            <>
+              Voluptatibus officia sit alias unde, totam odio? Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Facere doloremque illo accusamus cumque
+              perspiciatis.
+              <br />
+              <br />
+              <Box
+                component="span"
+                onClick={() => setShowMore(false)}
+                sx={{
+                  color: "#fff",
+                  fontWeight: 600,
+                  cursor: "pointer",
+                  "&:hover": { color: "primary.main" },
+                }}
+              >
+                Read less
+              </Box>
+            </>
+          )}
         </Typography>
-
-        <Button
-          sx={{
-            mt: 3,
-            px: 0,
-            color: "#fff",
-            textTransform: "none",
-            fontWeight: 600,
-            "&:hover": { color: "primary.main" },
-          }}
-        >
-          Read more
-        </Button>
       </Box>
 
-      {/* RIGHT IMAGE */}
-      <Box display={{ xs: "none", md: "block" }}>
-        <img
-          src={aboutImg}
-          alt="About illustration"
-          style={{ width: 420 }}
-        />
+      {/* RIGHT IMAGE AREA */}
+      <Box
+        position="relative"
+        display={{ xs: "none", md: "flex" }}
+        alignItems="center"
+        justifyContent="center"
+        width={450}
+      >
+        <Box sx={{ position: "absolute", zIndex: 1, right: -40, top: -30, opacity: 0.8 }}>
+          <DoodleItems />
+        </Box>
+
+        <Box sx={{ position: "relative", zIndex: 2, transform: "translate(-50px, 170px)" }}>
+          <Box
+            sx={{
+              position: "absolute",
+              bottom: -15,
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: 1,
+            }}
+          >
+            <Ellipse />
+          </Box>
+
+          <Box sx={{ position: "absolute", top: 0, right: 300, opacity: 0.8 }}>
+            <Sleep />
+          </Box>
+
+          <Box sx={{ position: "relative", zIndex: 2 }}>
+            <img src={aboutImg} alt="About illustration" style={{ width: 420 }} />
+          </Box>
+        </Box>
       </Box>
+
+      {/* HORIZONTAL LINE UNDER CONTENT */}
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          width: "100%",
+          height: "2px",
+          backgroundColor: "rgba(255,255,255,0.15)",
+        }}
+      />
     </Box>
   );
 };

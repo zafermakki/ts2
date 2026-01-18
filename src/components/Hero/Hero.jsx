@@ -3,8 +3,9 @@ import heroImg from "../../assets/images/Group 2346.png";
 import ArrowDownIcon from "../../assets/icons/ArrowDownIcon";
 import DoodlesMixedRound from "../../assets/decorations/DoodlesMixedRound";
 import Ellipse from "../../assets/decorations/Ellipse";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Vector from "../../assets/decorations/Vector";
+
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 const Hero = () => {
   return (
