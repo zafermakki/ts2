@@ -94,6 +94,7 @@ const Hero = () => {
             height: 500,
             zIndex: 0,
             pointerEvents: "none",
+            opacity: 0.4,
           }}
         >
           <DoodlesMixedRound width="100%" height="100%" />

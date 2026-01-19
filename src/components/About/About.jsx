@@ -97,7 +97,7 @@ const About = () => {
         justifyContent="center"
         width={450}
       >
-        <Box sx={{ position: "absolute", zIndex: 1, right: -40, top: -30, opacity: 0.8 }}>
+        <Box sx={{ position: "absolute", zIndex: 1, right: -40, top: -30, opacity: 0.4 }}>
           <DoodleItems />
         </Box>
 
