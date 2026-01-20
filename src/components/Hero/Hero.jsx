@@ -27,7 +27,6 @@ const Hero = () => {
           position: "relative",    
         }}
       >
-        {/* VECTOR ARROW */}
         <Box
           sx={{
             position: "absolute",
@@ -46,7 +45,6 @@ const Hero = () => {
               pl: "100px", 
             }}
           >
-            {/* TITLES */}
             <Typography
               fontWeight={800}
               lineHeight={1.1}
@@ -64,7 +62,6 @@ const Hero = () => {
               DESIGNER
             </Typography>
 
-            {/* BUTTONS */}
             <Box mt={4} display="flex" gap={2} >
               <Button variant="contained" sx={{color:"#fff",textTransform: "none",borderRadius: "20px",textShadow: "0 4px 6px rgba(0,0,0,0.45)"}} >Hire me</Button>
               <Button variant="contained" sx={{color:"#fff",textTransform: "none",borderRadius: "20px",backgroundColor:"#393E46",textShadow: "0 4px 6px rgba(0,0,0,0.45)",}}>
@@ -75,7 +72,7 @@ const Hero = () => {
 
       </Box>
 
-      {/* RIGHT SIDE (IMAGE + SHADOW) */}
+      {/* RIGHT SIDE  */}
       <Box
         sx={{
           position: "relative",
@@ -84,7 +81,6 @@ const Hero = () => {
           display: { xs: "none", md: "block" },
         }}
       >
-        {/* BACKGROUND DOODLES */}
         <Box
           sx={{
             position: "absolute",
@@ -100,7 +96,6 @@ const Hero = () => {
           <DoodlesMixedRound width="100%" height="100%" />
         </Box>
 
-        {/* BLACK SHADOW */}
         <Box
           sx={{
             position: "absolute",
@@ -114,7 +109,6 @@ const Hero = () => {
           <Ellipse />
         </Box>
 
-        {/* CHARACTER IMAGE */}
         <Box
           component="img"
           src={heroImg}
@@ -130,12 +124,11 @@ const Hero = () => {
         />
       </Box>
 
-      {/* SCROLL ICON */}
       <Box
         sx={{
           position: "absolute",
-          bottom: 30,
-          left: "50%",
+          bottom: 100,
+          left: "29%",
           transform: "translateX(-50%)",
           width: 44,
           height: 44,

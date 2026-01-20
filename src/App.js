@@ -1,6 +1,6 @@
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import theme from "./theme/theme";
-import Home from "./pages/Home/Home";
+import Home from "./pages/Home";
 
 function App() {
   return (

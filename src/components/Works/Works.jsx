@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import DoodleItems from "../../assets/decorations/DoodleItems";
 
+
 import CourseWebsite from "../../assets/images/CourseWebsite.png";
 import Laptop from "../../assets/images/Laptop.png";
 import Mobile from "../../assets/images/Mobile.png";
@@ -19,6 +20,7 @@ const Works = () => {
         mx: "auto",
         position: "relative",
         overflow: "hidden",
+        backgroundColor: "#222831",
         px: { xs: 2, sm: 4, md: 8 },
         py: { xs: 6, md: 10 },
         display: "flex",
@@ -26,11 +28,11 @@ const Works = () => {
         justifyContent: "center",
       }}
     >
-      {/* BACKGROUND SVG */}
       <Box
         sx={{
           position: "absolute",
           inset: 0,
+          zIndex: 2,
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
           gridTemplateRows: "repeat(3, 1fr)",
@@ -45,17 +47,15 @@ const Works = () => {
         ))}
       </Box>
 
-      {/* CONTENT */}
       <Box
         sx={{
           position: "relative",
-          zIndex: 1,
+          zIndex: 3,
           width: "100%",
           maxWidth: 1200,
           textAlign: { xs: "center", md: "left" },
         }}
       >
-        {/* TITLE */}
         <Typography
           variant="h3"
           fontWeight={800}
@@ -68,7 +68,6 @@ const Works = () => {
           </Box>
         </Typography>
 
-        {/* TABS */}
         <Box
           display="flex"
           gap={2}
@@ -102,7 +101,6 @@ const Works = () => {
           ))}
         </Box>
 
-        {/* WORKS GRID */}
         <Box
           sx={{
             display: "grid",

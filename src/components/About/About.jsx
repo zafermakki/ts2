@@ -30,7 +30,7 @@ const About = () => {
         <Box sx={{ position: "absolute", top: -80, left: 0 }}>
           <VectorMusic />
         </Box>
-        <Box sx={{ position: "absolute", top: -20, right: 200, opacity: 0.8 }}>
+        <Box sx={{ position: "absolute", top: -20, right: 200, opacity: 0.8,zIndex:-1 }}>
           <Lightbulb />
         </Box>
         <Box sx={{ position: "absolute", bottom: -200, left: 80, opacity: 0.8 }}>
@@ -128,7 +128,7 @@ const About = () => {
       <Box
         sx={{
           position: "absolute",
-          bottom: 0,
+          bottom: 20,
           left: 0,
           width: "100%",
           height: "2px",

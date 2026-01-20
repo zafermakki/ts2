@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, Typography,TextField,Button } from "@mui/material";
 import contactImg from "../../assets/images/Group 2372.png";
+import Send from "../../assets/icons/Send";
+import Keyboard  from "../../assets/decorations/keyboard"
+import Mail  from "../../assets/decorations/Mail"
+import VectorContact  from "../../assets/decorations/VectorContact"
+import EllipseContact from "../../assets/decorations/EllipseContact"
 
 const Contact = () => {
 
@@ -21,16 +26,17 @@ const Contact = () => {
         position: "relative",
       }}
     >
-      {/* IMAGE AREA - moved to the left */}
       <Box
         position="relative"
         display={{ xs: "none", md: "flex" }}
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        width={450}
         sx={{
           overflow: "hidden",
+          width: { md: 420, lg: 450 },
+          flexShrink: 0,
+          overflow: "visible",
         }}
       >
         <Typography
@@ -44,20 +50,83 @@ const Contact = () => {
             mind?
           </Box>
         </Typography>
+        <Box
+          sx={{
+            position: "absolute",
+            left: 10,
+            top: "70%",
+            transform: "translateY(-50%)",
+            width: 24,
+            height: 24,
+            opacity: 0.8,
+            zIndex: 3,
+          }}
+        >
+          <VectorContact
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        </Box>
+        <Box
+          sx={{
+            position: "absolute",
+            top: { md: "105%", lg: "124%" },
+            left: { md: "50%", lg: "64%" },
+            transform: "translate(-50%, -50%)",
+            width: { md: 150, lg: 260 },
+            height: { md: 80, lg: 260 },
+            opacity: 1,
+            zIndex: 1,
+            pointerEvents: "none",
+            transition: "all 0.3s ease",
+          }}
+        >
+          <EllipseContact
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        </Box>
+
         <Box sx={{ position: "relative", zIndex: 2 }}>
           <img
             src={contactImg}
             alt="Contact illustration"
-            style={{ width: "100%", maxWidth: 420, height: "auto", display: "block" }}
+            style={{
+              width: "100%",
+              maxWidth: 420,
+              height: "auto",
+              display: "block",
+              transform: "translateX(75px)",
+            }}
           />
         </Box>
       </Box>
 
-      {/* CONTENT - moved to the right */}
-      <Box maxWidth={520} mx="auto" px={{ xs: 2, sm: 4 }}  py={4}>
-      <Box display="flex" flexDirection="column" gap={3} ml={{ xs: 0, sm: 4 }}>
-        {/* Name & Email Fields */}
-        <Box display="flex" gap={2} flexDirection={{ xs: "column", sm: "row" }}>
+      <Box maxWidth={620} mx="0" px={{ xs: 2, sm: 4 }}  py={4} position="relative">
+        <Box display="flex" flexDirection="column" gap={3} ml={{ xs: 0, sm: 4 }}>
+          <Box display="flex" gap={2} flexDirection={{ xs: "column", sm: "row" }}>
+            <Box
+                sx={{
+                  position: "absolute",
+                  top: -55,          
+                  left: 130,     
+                  width: 24,
+                  height: 24,
+                  opacity: 0.8,
+                }}
+              >
+                <Keyboard
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                  }}
+                />
+              </Box>
+
           {/* Name Field */}
           <Box flex={1} display="flex" flexDirection="column" gap={1}>
             <Typography variant="subtitle2" fontWeight={600}>
@@ -73,8 +142,16 @@ const Contact = () => {
                 sx: {
                   backgroundColor: "#393E4680",
                   borderRadius: 2,
-                  paddingX: 2,
-                  "& input": { color: "#fff" },
+                  height: 52,
+                  display: "flex",
+                  alignItems: "center",
+                  px: 2,
+                  "& input": {
+                    color: "#fff",
+                    padding: 0,
+                    height: "100%",
+                    boxSizing: "border-box",
+                  },
                 },
               }}
             />
@@ -96,9 +173,18 @@ const Contact = () => {
                 sx: {
                   backgroundColor: "#393E4680",
                   borderRadius: 2,
-                  paddingX: 2,
-                  "& input": { color: "#fff" },
-                },
+                  height: 52,
+                  display: "flex",
+                  alignItems: "center",
+                  px: 2,
+                  "& input": {
+                    color: "#fff",
+                    padding: 0,
+                    height: "100%",
+                    boxSizing: "border-box",
+                    
+                  },
+                  },
               }}
             />
           </Box>
@@ -122,30 +208,70 @@ const Contact = () => {
               sx: {
                 backgroundColor: "#393E4680",
                 borderRadius: 2,
-                paddingX: 2,
-                "& input, & textarea": { color: "#fff" },
+                px: 2,
+                py: 1.5,
+                "& textarea": {
+                  color: "#fff",
+                  padding: 0,
+                  lineHeight: 1.6,
+                  boxSizing: "border-box",
+                },
               },
             }}
           />
         </Box>
 
-        {/* Send Button */}
-            <Button
-            variant="contained"
-            sx={{
-                textTransform: "none",
-                backgroundColor: "#393E4680",
-                color: "#fff",
-                borderRadius: 2,
-                py: 1.5,
-                "&:hover": { backgroundColor: "#2F333E" },
-                alignSelf: "flex-start", // يبقي الزر على نفس اتجاه الحقول
-            }}
-            >
-             Send Message
-            </Button>
+        <Box position="relative" alignSelf="flex-start">
+                <Button
+                  variant="contained"
+                  sx={{
+                    textTransform: "none",
+                    backgroundColor: "#00ADB5",
+                    color: "#fff",
+                    borderRadius: "20px",
+                    py: 1.5,
+                    px: 3,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1,
+                    textShadow: "0 4px 6px rgba(0,0,0,0.45)",
+                  }}
+                >
+                  Send Message <Send />
+                </Button>
+
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: "100%",      
+                    left: "90%",
+                    transform: "translateX(-50%)",
+                    mt: 1.5,
+                    width: 24,
+                    height: 24,
+                    opacity: 0.8,
+                  }}
+                >
+                  <Mail
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  />
+                </Box>
+              </Box>
             </Box>
         </Box>
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            width: "100%",
+            height: "2px",
+            backgroundColor: "rgba(255,255,255,0.15)",
+          }}
+        />
     </Box>
   );
 };
